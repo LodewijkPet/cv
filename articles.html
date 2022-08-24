@@ -4,30 +4,39 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="icon" href="images\favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
         <title>CV</title>
     </head>
     <body>
+        <nav>
+            <ul>
+                <a href="index.html"><li>Index</li></a>
+                <a href="articles.html"><li>Articles</li></a>
+                <a href="contact.html"><li>Contact</li></a>
+                <a href="languages.html"><li>Languages</li></a>
+            </ul>
+        </nav>
         <img src="images\espresso_martini.JPG" alt="A foto of Lodewijk Pet" height="400">
+        <hr>
         <h1>Lodewijk Pet</h1>
-        <h2>A website created by me</h2>
-        <p>
-            My name is <em>Lodeijk Pet</em>. I'm a PhD student at the LUMC in <strong>The Netherlands</strong>. 
-            I started coding right before the COVID-19 pandamic and continued learning to code eversince. 
-            HTML, CSS, and JavaScript were the first languages, but I soon learned Python.
-            What happens when I start coding, while the live server is on?
-        </p> 
         <hr>
         <h3>Publications</h3>
         <ol>
             <li>An article about the effect of dupilumab in a case-series of 4 patients.</li>
-            <li>An actile abouth the retraction rate of articles of different journals and what to do with 0 observations.</li>
+            <li><button onclick="toggleSnow()">Theme</button> An actile abouth the retraction rate of articles of different journals and what to do with 0 observations.</li>
         </ol>
-        <nav>
-            <a href="index.html"><li>Index</li></a>
-            <a href="articles.html"><li>Articles</li></a>
-            <a href="contact.html"><li>Contact</li></a>
-            <a href="languages.html"><li>Languages</li></a>
-        </nav>
+        <hr>
+       
+        <footer>
+            <span>Name: Lodewijk pet</span>
+            <span>Email: lodewijk.pet@gmail.com</span>
+            <span>Phone: +31 60 00 00 000</span>
+        </footer>
+        
+        <script src="./p5/Snowfall_2022_08_22_14_02_20/p5.js"></script>
+        <script type="text/javascript" src="./p5/Snowfall_2022_08_22_14_02_20/sketch.js"></script>
+        <script type="text/javascript" src="./p5/Snowfall_2022_08_22_14_02_20/snowflake.js"></script>
     </body>
 </html>

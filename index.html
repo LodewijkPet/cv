@@ -4,28 +4,69 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="icon" href="images\favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
         <title>CV</title>
     </head>
     <body>
+        <nav>
+            <ul>
+                <a href="index.html"><li>Index</li></a>
+                <a href="articles.html"><li>Articles</li></a>
+                <a href="contact.html"><li>Contact</li></a>
+                <a href="languages.html"><li>Languages</li></a>
+            </ul>
+        </nav>
         <img src="images\name_board.JPG" alt="A foto of Lodewijk Pet" height="400">
+        <hr>
         <h1>Lodewijk Pet</h1>
         <h2>A website created by me</h2>
+        <hr>
+        <h3>Who am I?</h3>
         <p>
-            My name is <em>Lodeijk Pet</em>. I'm a PhD student at the LUMC in <strong>The Netherlands</strong>. 
+            My name is <em>Lodewijk Pet</em>. I'm a PhD student at the LUMC in <strong>The Netherlands</strong>. 
             I started coding right before the COVID-19 pandamic and continued learning to code eversince. 
             HTML, CSS, and JavaScript were the first languages, but I soon learned Python.
             What happens when I start coding, while the live server is on?
         </p> 
         <hr>
+        <h3>Work expierence</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Job</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2009 - 20012</td>
+                    <td>Albert Heijn</td>
+                </tr>
+                <tr>
+                    <td>2017 - 2018</td>
+                    <td>Jan van Goyen</td>
+                </tr>
+                <tr>
+                    <td>2022 - now</td>
+                    <td>LUMC PhD Quality & Integrity of biomedical science</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
         <p>
-            This websites contains multpile pages containing information about myself. I hope you find what you are looking for.
+            This websites is a playground for me to test a lot of functions. Feel free to mess around with it. For example this randomly generated table of 10 "patients". You can download it as a csv file with the download button, obviously.
         </p>
-        <nav>
-            <a href="index.html"><li>Index</li></a>
-            <a href="articles.html"><li>Articles</li></a>
-            <a href="contact.html"><li>Contact</li></a>
-            <a href="languages.html"><li>Languages</li></a>
-        </nav>
+        <div id="table">
+
+        </div>
+        <hr>
+        <script src="./javascript/statistics.js"></script>
+        <footer>
+            <span>Name: Lodewijk pet</span>
+            <span>Email: lodewijk.pet@gmail.com</span>
+            <span>Phone: +31 60 00 00 000</span>
+        </footer>
     </body>
 </html>

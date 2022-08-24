@@ -1,0 +1,135 @@
+body{
+    background-color: rgba(65, 21, 48, 0.9);
+    color: #F5C7A9;
+    text-align: center;
+    font-family: "consolas", monospace, sans-serif;
+}
+
+button{
+    background-color: rgba(209, 81, 45, 0.8);
+    border-radius: 15px;
+    color: #F5C7A9;
+    padding: 7px;
+    margin: 5px;
+}
+
+canvas {
+    display: block;
+    background-color: transparent;
+}
+
+footer{
+    background-color: rgba(209, 81, 45, 0.5);
+    border-radius: 15px;
+    position: absolute;
+    padding: 25px 20px 5px 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+form{
+    background-color: rgba(209, 81, 45, 0.8);
+    padding: 10px;
+    width: 50%;
+    border-radius: 10px;
+    margin: auto;
+}
+
+h1{
+    font-family: "Sacramento";
+    font-size: 5rem;
+}
+
+hr{
+    border-style: dotted none none none;
+    color: #F5E8E4;
+    border-width: 5px;
+    width: 5%;
+    height: 0;
+    margin: 25px auto;
+}
+
+img{
+    border-radius: 25%;
+    border: 5px solid transparent;
+    margin: 75px auto 0 auto;
+    opacity: 0.8;
+}
+
+img:hover{
+    border: 5px #f5d9a9 solid;
+    opacity: 1;
+}
+
+input{
+    background-color: #F5E8E4;
+    border-radius: 5px;
+    color: rgba(209, 81, 45, 1);
+}
+
+li{
+    margin: auto;
+    width: fit-content;
+}
+
+ol{
+    margin: auto;
+}
+
+nav{
+    background-color: rgba(245, 199, 169, 0.9);
+    border-radius: 10px;
+    padding: 0 10px;
+    position:fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav > ul{
+    text-align: center;
+    padding: 0;
+}
+
+nav > ul> a> li{
+    display: inline-block;
+    margin: 0 15px;
+    font-weight: 800;
+}
+
+p{
+    padding: 2% 5%;
+    background-color: rgba(209, 81, 45, 0.8);
+    border-radius: 25px 25px 25px 25px;
+    margin: auto 10%;
+}
+
+table{
+    border-collapse: collapse;
+    margin: 20px auto;
+    padding: 5px;
+    background-color: rgba(209, 81, 45, 0.5);
+}
+
+td{
+    border: #F5E8E4 1px solid;
+    padding: 2px;
+}
+
+textarea{
+    background-color: #F5E8E4;
+    border-radius: 5px;
+    color: rgba(209, 81, 45, 1);
+}
+
+th{
+    border: #F5E8E4 1px solid;
+    padding: 2px 5px;
+}
+
+
+/* classes */
+.active{
+    background-color: blue;
+}
+
