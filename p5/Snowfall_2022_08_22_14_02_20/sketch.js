@@ -4,10 +4,7 @@
 
 // Snowfall
 // Edited Video: https://youtu.be/cl-mHFCGzYk
-// rgba(65, 21, 48, 0.9)
-// back_red = 65
-// back_green = 21
-// back_blue = 48
+
 let snowFlakeCount = 0
 let snow = [];
 let gravity;
@@ -18,7 +15,7 @@ let spritesheet;
 let textures = [];
 
 function preload() {
-  spritesheet = loadImage('./p5/Snowfall_2022_08_22_14_02_20/flakes32.png');
+  spritesheet = loadImage('../.././p5/Snowfall_2022_08_22_14_02_20/flakes32.png');
 }
 
 function toggleSnow () {

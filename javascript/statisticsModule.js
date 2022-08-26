@@ -1,7 +1,6 @@
- function createTable (headerRows, bodyRows, footRows){
-
+export function createTable (headerRows, bodyRows, footRows, id){
     const table = document.createElement("table")
-    table.id = `table${tables.length + 1}`
+    table.id = id
 
     const thead = createTableHead(headerRows)
     const tbody = createTableBody(bodyRows, headerRows[headerRows.length - 1])
@@ -14,29 +13,29 @@
     return table
 }
 
- function createTableHead(headerRows){
+export function createTableHead(headerRows){
     const tableHead = document.createElement("thead")
 
-    for (index in headerRows){
-        row = createHeaderRow(headerRows[index])
+    for (let index = 0; index < headerRows.length; index++) {
+        const row = createHeaderRow(headerRows[index]);
         tableHead.append(row)
     }
 
     return tableHead
 }
 
- function createHeaderRow(headerRowCells){
+export function createHeaderRow(headerRowCells){
     const row = document.createElement("tr")
 
-    for (index in headerRowCells){
-        const headerCell = createHeadersCell(headerRowCells[index])
+    for (let index = 0; index < headerRowCells.length; index++) {
+        const headerCell = createHeadersCell(headerRowCells[index]);
         row.append(headerCell)
     }
 
     return row
 }
 
- function createHeadersCell(headerName){
+export function createHeadersCell(headerName){
     const cell = document.createElement("th")
     cell.innerText = headerName
 
@@ -46,29 +45,30 @@
     return cell
 }
 
- function createTableBody(bodyRows, headerNames){
+export function createTableBody(bodyRows, headerNames){
     const tableBody = document.createElement("tbody")
 
-    for (index in bodyRows){
-        row = createBodyRow(bodyRows[index], headerNames)
+    for (let index = 0; index < bodyRows.length; index++) {
+        const row = createBodyRow(bodyRows[index]);
         tableBody.append(row)
+        
     }
 
     return tableBody
 }
 
- function createBodyRow(bodyRowCells, headerNames){
+export function createBodyRow(bodyRowCells, headerNames){
     const row = document.createElement("tr")
 
-    for (index in bodyRowCells){
-        bodyRowCell = createBodyRowCell(bodyRowCells[index], headerNames[index], bodyRowCells[0])
+    for (let index = 0; index < bodyRowCells.length; index++) {
+        const bodyRowCell = createBodyRowCell(bodyRowCells[index]);
         row.append(bodyRowCell)
     }
 
     return row
 }
 
- function createBodyRowCell(cellValue, headerName, rowId){
+export function createBodyRowCell(cellValue, headerName, rowId){
     const cell = document.createElement("td")
     cell.innerText = cellValue
 
@@ -78,48 +78,48 @@
     return cell
 }
 
- function createTableFoot(footRows){
+export function createTableFoot(footRows){
     const tableFoot = document.createElement("tfoot")
-        
-    for (index in footRows){
-        row = createFootRow(footRows[index])
+    
+    for (let index = 0; index < footRows.length; index++) {
+        const row = createFootRow(footRows[index]);
         tableFoot.append(row)
     }
 
     return tableFoot
 }
 
- function createFootRow(footRowCells){
+export function createFootRow(footRowCells){
     const row = document.createElement("tr")
 
-    for (index in footRowCells){
-        const footRowCell = createFootRowCell(footRowCells[index])
+    for (let index = 0; index < footRowCells.length; index++) {
+        const footRowCell = createFootRowCell(footRowCells[index]);
         row.append(footRowCell)
     }
 
     return row
 }
 
- function createFootRowCell(cellValue){
+export function createFootRowCell(cellValue){
     const cell = document.createElement("td")
     cell.innerText = cellValue
 
     return cell
 }
 
- function toggleClass(element, toggleClass){
+export function toggleClass(element, toggleClass){
     element.classList.toggle(toggleClass)
 }
 
- function addClass(element, newClass){
+export function addClass(element, newClass){
     element.classList.add(newClass)
 }
 
- function removeClass(element, removeClass){
+export function removeClass(element, removeClass){
     element.classList.remove(removeClass)
 }
 
- function createLable(inputId, labelText){
+export function createLable(inputId, labelText){
     const label = document.createElement("label")
     label.setAttribute("for", inputId)
     label.innerText = labelText
@@ -127,7 +127,7 @@
     return label
 }
 
- function createInput(inputType, inputId, defaultValue, placeholder, classes){
+export function createInput(inputType, inputId, defaultValue, placeholder, classes){
     const input = document.createElement("input")
     input.setAttribute("type", inputType)
     input.setAttribute("id", inputId)
@@ -142,7 +142,7 @@
     return input
 }
 
- function createInputLabel(inputId, classes, labelText="This is a label", inputType, defaultValue, placeholder="This is a placeholde"){
+export function createInputLabel(inputId, classes, labelText="This is a label", inputType, defaultValue, placeholder="This is a placeholde"){
     const label = createLable(inputId, labelText)
     const input = createInput(inputType, inputId, defaultValue, placeholder, classes)
     
@@ -154,14 +154,14 @@
     return elements
 }
 
- function createButton(text){
+export function createButton(text){
     const button = document.createElement("button")
     button.innerText = text
 
     return button
 }
 
- function createSearcher(){
+export function createSearcher(){
     const inputLabel = createInputLabel("columnSearch", ["search", "column"], "Column Search", "text", "age", "all")
     const label = inputLabel["label"]
     const input = inputLabel["input"]
@@ -182,7 +182,7 @@
     document.getElementById("table").append(label, input, br, label2, input2, br2, button, button2)
 }
 
- function activate(columns, ids){
+export function activate(columns, ids){
     if (ids){
         ids = `id_${ids}`
     }
@@ -193,7 +193,7 @@
     }
 }
 
- function deactivate(columns, ids){
+export function deactivate(columns, ids){
     if (ids){
         ids = `id_${ids}`
     }
@@ -204,14 +204,14 @@
     }
 }
 
- function toggle(columns, ids){
+export function toggle(columns, ids){
     elements = getElements(columns, ids)
     for (index = 0; index < elements.length; index++){
         toggleClass(elements[index], "active")
     }
 }
 
- function getElements(classes){
+export function getElements(classes){
     let classesText = ''
     for (let index = 0; index < classes.length; index++) {
         const classText = classes[index];
@@ -221,7 +221,7 @@
     return elements
 }
 
- function createRandomValues(lowerBound, upperBound, decimals){
+export function createRandomValues(lowerBound, upperBound, decimals){
     const difference = upperBound - lowerBound
     const addValue = Math.random() * difference
     const newValue = (lowerBound + addValue).toFixed(decimals)
@@ -229,7 +229,7 @@
     return newValue
 }
 
- function createVariable(text, min, max, dec){
+export function createVariable(text, min, max, dec){
     const newVariable = {
         "text" : text,
         "min" : min,
@@ -241,7 +241,7 @@
     return newVariable
 }
 
- function createRow(){
+export function createRow(){
     const id = ids.length + 1
     const row = [id]
     for (let i = 0; i < variables.length; i++) {
@@ -255,7 +255,7 @@
     return row
 }
 
- function htmlToCSV(filename) {
+export function htmlToCSV(filename) {
 	var data = [];
 	var rows = document.querySelectorAll("#table1 thead>tr, #table1 tbody>tr");
 			
@@ -271,7 +271,7 @@
 	downloadCSVFile(data.join("\n"), filename)
 };
 
- function downloadCSVFile(csv, filename) {
+export function downloadCSVFile(csv, filename) {
 	var csv_file, download_link;
 
 	csv_file = new Blob([csv], {type: "text/csv"});
@@ -288,37 +288,3 @@
 
 	download_link.click();
 }
-
-const tables = []
-
-const variables = []
-const headers = ["id"]
-
-const age = createVariable("age", 18, 90, 0)
-const height = createVariable("height", 1.60, 2.20, 2)
-const weight = createVariable("weight", 60, 120, 1)
-
-const ids = []
-const numberOfIds = 10
-
-for (let i = 0; i < numberOfIds; i++) {
-    const newId = createRow()
-    ids.push(newId)
-}
-
-const headerRows = [headers]
-
-const bodyRows = []
-ids.forEach(id => bodyRows.push(id))
-
-const footRowOne = ["-", "-", "-", "-"]
-const footRows = [footRowOne]
-
-const table = createTable(headerRows, bodyRows, footRows)
-document.getElementById("table").append(table)
-
-createSearcher()
-
-const downloadButton = createButton("download")
-downloadButton.addEventListener("click", function(){htmlToCSV("test.csv")})
-document.getElementById("table").append(downloadButton)
