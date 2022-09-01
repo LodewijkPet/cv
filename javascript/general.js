@@ -1,9 +1,9 @@
-export function createTable (headerRows, bodyRows, footRows, id){
+export function createTable (headerRows, bodyRows, footRows, firstCellisTh = false, id){
     const table = document.createElement("table")
     table.id = id
 
     const thead = createTableHead(headerRows)
-    const tbody = createTableBody(bodyRows, headerRows[headerRows.length - 1])
+    const tbody = createTableBody(bodyRows, headerRows[headerRows.length - 1], firstCellisTh)
     const tfoot = createTableFoot(footRows)
 
     table.append(thead)
@@ -45,11 +45,11 @@ export function createHeadersCell(headerName){
     return cell
 }
 
-export function createTableBody(bodyRows, headerNames){
+export function createTableBody(bodyRows, headerNames, firstCellisTh){
     const tableBody = document.createElement("tbody")
 
     for (let index = 0; index < bodyRows.length; index++) {
-        const row = createBodyRow(bodyRows[index]);
+        const row = createBodyRow(bodyRows[index], headerNames, firstCellisTh);
         tableBody.append(row)
         
     }
@@ -57,23 +57,30 @@ export function createTableBody(bodyRows, headerNames){
     return tableBody
 }
 
-export function createBodyRow(bodyRowCells, headerNames){
+export function createBodyRow(bodyRowCells, headerNames, firstCellisTh){
     const row = document.createElement("tr")
 
     for (let index = 0; index < bodyRowCells.length; index++) {
-        const bodyRowCell = createBodyRowCell(bodyRowCells[index]);
+        if (index > 0){
+            firstCellisTh = false
+        } 
+        const bodyRowCell = createBodyRowCell(bodyRowCells[index], headerNames[index], bodyRowCells[0], firstCellisTh);
         row.append(bodyRowCell)
     }
 
     return row
 }
 
-export function createBodyRowCell(cellValue, headerName, rowId){
-    const cell = document.createElement("td")
-    cell.innerText = cellValue
+export function createBodyRowCell(cellValue, headerName, rowId, firstCellisTh){
+    let cell;
+    if (firstCellisTh){
+        cell = createTh(cellValue)
+    } else {
+        cell = createTd(cellValue)
+    }
 
     addClass(cell, "data")
-    addClass(cell, headerName)
+    addClass(cell, headerName.replace(/ /g,"_"))
     addClass(cell, `id_${rowId}`)
     return cell
 }
@@ -101,8 +108,21 @@ export function createFootRow(footRowCells){
 }
 
 export function createFootRowCell(cellValue){
+    const cell = createTd(cellValue)
+
+    return cell
+}
+
+export function createTd(element){
     const cell = document.createElement("td")
-    cell.innerText = cellValue
+    cell.append(element)
+
+    return cell
+}
+
+export function createTh(element){
+    const cell = document.createElement("th")
+    cell.append(element)
 
     return cell
 }
@@ -112,7 +132,7 @@ export function toggleClass(element, toggleClass){
 }
 
 export function addClass(element, newClass){
-    element.classList.add(newClass)
+    element.classList.add(newClass.replace(/ /g,"_"))
 }
 
 export function removeClass(element, removeClass){
@@ -296,7 +316,7 @@ export function padTo2Digits(num) {
 export function formatDate(date) {
     return [
         padTo2Digits(date.getDate()),
-        padTo2Digits(date.getMonth()),
+        padTo2Digits(date.getMonth()+1),
         date.getFullYear(),
     ].join('-');
 }
@@ -462,7 +482,7 @@ export function createAuthorList(authors){
 
 export function createPage(contents=[], classes_=[]){
     const page = document.createElement("section");
-    page.classList.add("page");
+    addClass(page, "page")
 
     if (classes_.length){
         for (let i = 0; i < classes_.length; i++) {
@@ -576,4 +596,45 @@ export function createUl(listItems = [], itemsAreListElements = false){
 export function choice(list){
     const randomElement = list[Math.floor(Math.random() * list.length)];
     return randomElement
+}
+
+export function timeDateDiff(date1, date2){
+    const diff = date2 - date1;
+    const format = {
+        "secs" : diff / 1000,
+        "mins" : diff / 1000 / 60,
+        "hours" : diff / 1000 / 60 / 60,
+        "days" : diff / 1000 / 60 / 60 / 24,
+        "weeks" : diff / 1000 / 60 / 60 / 24 / 7,
+    };
+    return format;
+}
+
+export function createSummaryDetails(sum, det){
+    const summary = document.createElement("summary");
+    const details = document.createElement("details");
+
+    summary.innerHTML = sum;
+    details.append(det);
+
+    details.append(summary)
+
+    return details
+}
+
+export function standadrizedMortalityRate(observations, expected, confidenceLevel, fisher){
+    const poitEstimate = observations / expected;
+    const lowerLimit = 0
+}
+
+export function confidenceInterval(level){
+    const twoTailed = (1-level) / 2
+    const value = Math.log(value)
+
+}
+
+export function createSection(){
+    const section = document.createElement("section");
+
+    return section;
 }

@@ -1,7 +1,7 @@
- function createTable (headerRows, bodyRows, footRows){
+ function createTable (headerRows, bodyRows, footRows, id){
 
     const table = document.createElement("table")
-    table.id = `table${tables.length + 1}`
+    table.id = id
 
     const thead = createTableHead(headerRows)
     const tbody = createTableBody(bodyRows, headerRows[headerRows.length - 1])
